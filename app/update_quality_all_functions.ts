@@ -1,7 +1,17 @@
 
 /**Fichier répértoriant toutes les fonctions pour chaque type de biens voyant sa qualité évoluer (tous les biens sauf les "Sulfuras, Hand of Ragnaros") */
 
+import { Item } from "./item_model";
 
+
+/**La qualité d'un produit (excepté les produits "Sulfura") doit être située entre 0 et 50*/
+const maxQuality = 50;
+const minQuality = 0;
+
+
+ const increaseOfQuality = (item) =>{
+    item.quality < maxQuality ? item.quality++ : item.quality;
+}
 
 /**Fonction créée pour les biens du type "BackstagePasses" 
  * 
@@ -22,7 +32,9 @@ export function updateQualityForBackstagePasses(item) {
  * @param item
  * */
 
-export function updateQualityForAgedBrie(item) {
+export function updateQualityForAgedBrie(item): Item {
+    increaseOfQuality(item);
+    return item;
 }
 
 /**Fonction créée pour les biens 'normaux'
