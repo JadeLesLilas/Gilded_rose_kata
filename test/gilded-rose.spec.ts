@@ -35,6 +35,16 @@ describe('Backstage passes to a TAFKAL80ETC concert update of quality', function
     });
 });
 
+describe('Backstage passes to a TAFKAL80ETC concert update of quality  when sellIn < 0', function () {
+
+    it('should the quality decrease', function() {
+        const gildedRose = new GildedRose([   new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).to.equal(0);
+        expect(items[0].sellIn).to.equal(-1);
+    });
+});
+
 describe('Conjured Goods update of quality', function () {
 
     it('should the quality decrease', function() {
@@ -42,6 +52,17 @@ describe('Conjured Goods update of quality', function () {
         const items = gildedRose.updateQuality();
         expect(items[0].quality).to.equal(3);
         expect(items[0].sellIn).to.equal(2);
+    });
+
+});
+
+describe('Normal Goods update of quality', function () {
+
+    it('should the quality decrease', function() {
+        const gildedRose = new GildedRose([   new Item("normal", 15, 40) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).to.equal(39);
+        expect(items[0].sellIn).to.equal(14);
     });
 
 });
