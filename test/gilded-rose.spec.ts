@@ -12,3 +12,16 @@ describe('Gilded Rose', function () {
     });
 
 });
+
+describe('aged brie update of quality', function () {
+
+    it('should the quality increase', function() {
+        const gildedRose = new GildedRose([   new Item("Aged Brie", 2, 2) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).to.equal(3);
+        expect(items[0].sellIn).to.equal(1);
+    });
+
+});
+
+
