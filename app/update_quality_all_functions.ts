@@ -18,7 +18,7 @@ const decreaseOfQuality = (item) =>{
 }
 
 const decreaseOfQualityConjuredGoods = (item) =>{
-    item.quality > minQuality ? item.quality-2 : item.quality;
+    item.quality > minQuality ? item.quality-=2 : item.quality;
 }
 /**Fonction créée pour les biens du type "BackstagePasses" 
  * 
@@ -69,7 +69,9 @@ export function updateQualityForNormalGoods(item) {
  * @param item 
  */
 export function updateQualityForConjuredGoods(item) {
-    decreaseOfQuality(item);
-    decreaseOfQuality(item)
+    decreaseOfQualityConjuredGoods(item);
+    if (item.sellIn < 0) {
+        decreaseOfQualityConjuredGoods(item);
+    }
     return item;
 }
