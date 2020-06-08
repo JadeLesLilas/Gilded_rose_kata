@@ -13,6 +13,9 @@ const minQuality = 0;
     item.quality < maxQuality ? item.quality++ : item.quality;
 }
 
+const decreaseOfQuality = (item) =>{
+    item.quality > minQuality ? item.quality-- : item.quality;
+}
 /**Fonction créée pour les biens du type "BackstagePasses" 
  * 
  * Principe de variation de la quantité : la qualité augmente de plus en plus au fur et à mesure que la valeur 'SellIn' diminue
@@ -21,7 +24,10 @@ const minQuality = 0;
  * */
 
 export function updateQualityForBackstagePasses(item) {
-  
+    increaseOfQuality(item);
+    item.sellIn < 11 ? increaseOfQuality(item) : item.quality = item.quality;
+    item.sellIn < 6 ? increaseOfQuality(item) : item.quality = item.quality;
+
 
 }
 
@@ -54,5 +60,7 @@ export function updateQualityForNormalGoods(item) {
  * @param item 
  */
 export function updateQualityForConjuredGoods(item) {
-
+    decreaseOfQuality(item);
+    decreaseOfQuality(item);
+    return item;
 }

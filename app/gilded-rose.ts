@@ -1,5 +1,6 @@
 import { Item } from "./item_model";
-import { updateQualityForAgedBrie } from "./update_quality_all_functions";
+import { updateQualityForAgedBrie, updateQualityForBackstagePasses, updateQualityForConjuredGoods, updateQualityForNormalGoods } from "./update_quality_all_functions";
+
 
 export class GildedRose {
     items: Array<Item>;
@@ -8,28 +9,25 @@ export class GildedRose {
         this.items = items;
     }
 
-    updateQuality(): Item[] {
+    updateQuality() {
 
         this.items.forEach(item => {
-            item.sellIn--;
-            if (item.name === "Aged Brie") {
-                updateQualityForAgedBrie(item)
+            item.sellIn --;
+            switch (item.name) {
+                case "Aged Brie": {
+                    updateQualityForAgedBrie(item);
+                    break;
+                }
+                case "Backstage passes to a TAFKAL80ETC concert": {
+                    updateQualityForBackstagePasses(item);
+                    break;
+                }
+                case "Conjured": {
+                    updateQualityForConjuredGoods(item);
+                    break;
+                }
+                default: updateQualityForNormalGoods(item);
             }
-            // switch (item.name) {
-            //     case "Aged Brie": {
-            //         item =updateQualityForAgedBrie(item);
-            //         break;
-            //     }
-            //     case "Backstage passes to a TAFKAL80ETC concert": {
-            //         updateQualityForBackstagePasses(item);
-            //         break;
-            //     }
-            //     case "Conjured": {
-            //         updateQualityForConjuredGoods(item);
-            //         break;
-            //     }
-            //     default: updateQualityForNormalGoods(item);
-            // }
         })
 
         return this.items;
