@@ -35,7 +35,7 @@ describe('Backstage passes to a TAFKAL80ETC concert update of quality', function
     });
 });
 
-describe('Backstage passes to a TAFKAL80ETC concert update of quality  when sellIn < 0', function () {
+describe('Backstage passes to a TAFKAL80ETC concert update of quality  when sellIn < 0 ', function () {
 
     it('should the quality decrease', function() {
         const gildedRose = new GildedRose([   new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10) ]);
