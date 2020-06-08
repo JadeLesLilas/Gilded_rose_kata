@@ -31,6 +31,9 @@ export function updateQualityForBackstagePasses(item) {
     increaseOfQuality(item);
     item.sellIn < 11 ? increaseOfQuality(item) : item.quality = item.quality;
     item.sellIn < 6 ? increaseOfQuality(item) : item.quality = item.quality;
+    if (item.sellIn < 0) {
+        item.quality = 0;
+    }
 }
 
 /**Fonction créée pour les biens du type "Aged Brie" 
