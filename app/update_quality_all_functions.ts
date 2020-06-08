@@ -16,6 +16,10 @@ const minQuality = 0;
 const decreaseOfQuality = (item) =>{
     item.quality > minQuality ? item.quality-- : item.quality;
 }
+
+const decreaseOfQualityConjuredGoods = (item) =>{
+    item.quality > minQuality ? item.quality-2 : item.quality;
+}
 /**Fonction créée pour les biens du type "BackstagePasses" 
  * 
  * Principe de variation de la quantité : la qualité augmente de plus en plus au fur et à mesure que la valeur 'SellIn' diminue
@@ -27,8 +31,6 @@ export function updateQualityForBackstagePasses(item) {
     increaseOfQuality(item);
     item.sellIn < 11 ? increaseOfQuality(item) : item.quality = item.quality;
     item.sellIn < 6 ? increaseOfQuality(item) : item.quality = item.quality;
-
-
 }
 
 /**Fonction créée pour les biens du type "Aged Brie" 
@@ -50,7 +52,11 @@ export function updateQualityForAgedBrie(item): Item {
  * @param item 
  */
 export function updateQualityForNormalGoods(item) {
-
+    decreaseOfQuality(item);
+    if (item.sellIn < 0) {
+        decreaseOfQuality(item)
+    }
+    return item;
 }
 
 /**Fonction créée pour les biens de type "Conjured"
@@ -61,6 +67,6 @@ export function updateQualityForNormalGoods(item) {
  */
 export function updateQualityForConjuredGoods(item) {
     decreaseOfQuality(item);
-    decreaseOfQuality(item);
+    decreaseOfQuality(item)
     return item;
 }
