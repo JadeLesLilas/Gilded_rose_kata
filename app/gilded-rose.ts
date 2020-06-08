@@ -26,6 +26,10 @@ export class GildedRose {
                     updateQualityForConjuredGoods(item);
                     break;
                 }
+                case "Sulfuras, Hand of Ragnaros" : {
+                    item.quality = 80;
+                    break;
+                }
                 default: updateQualityForNormalGoods(item);
             }
         })
