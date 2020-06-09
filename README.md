@@ -15,7 +15,11 @@ Si ce n'est pas le cas, lancer dans la console ou en invite de commandes :
 
 4- Pour compiler le code il faut lancer dans la console ou en ligne de commandes: 
 "tsc -w" : ceci permet de voir la compilation dans le mode "watch"
-Nous avons alors un fichier javascript généré.
+Nous avons alors le projet généré en javascript.
 
-5- Pour exécuter le projet il suffit alors de lancer la commande
+5- Pour exécuter le code il suffit alors de lancer la commande
 "node +nom_fichier.js"
+
+Ainsi pour tester le code et vérifier que les spécifications transmises par Gilded Rose ont bien été respectées, il suffit de se mettre au niveau du dossier 'test' du projet et de lancer la commande : 
+"node golden-master-text-test"
+Ceci permettra d'exécuter ce programme qui contient plusieurs cas de tests.
